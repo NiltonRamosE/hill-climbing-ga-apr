@@ -27,7 +27,7 @@ export const Navbar = () => {
 
   return (
     <NavbarUI
-      className="fixed top-4 z-50 left-1/2 transform -translate-x-1/2 shadow-md rounded-full max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-3xl border-2 border-nilton-green" 
+      className="fixed top-4 z-50 left-1/2 transform -translate-x-1/2 shadow-md rounded-full max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-3xl border-2 border-nilton-neon" 
     >
       <NavbarContent>
         <NavbarBrand>
@@ -40,7 +40,7 @@ export const Navbar = () => {
             <img
               alt="Nilton Logo"
               className="w-auto hidden sm:block h-8 lg:h-10 lg:ml-10"
-              src="/logo-v1.png"
+              src="/info.png"
             />
           </a>
         </NavbarBrand>

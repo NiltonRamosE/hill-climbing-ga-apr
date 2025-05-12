@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+  --color-nilton-neon: #a972c6;
+  --color-nilton-dark: #0d181c;
+  --color-nilton-light: #f6f6f6;
+  --color-nilton-blue: #1c457e;
+}
+
 * {
   font-family: "Montserrat", sans-serif;
 }
