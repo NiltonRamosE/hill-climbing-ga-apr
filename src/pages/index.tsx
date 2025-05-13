@@ -3,31 +3,20 @@
 import DefaultLayout from "@/layouts/default";
 import { motion } from "framer-motion";
 
-import EventSection from "@/sections/evento";
-import EntradasSection from "@/sections/entradas";
+import HeroSection from "@/sections/hero";
 import GASection from "@/sections/InfografiaAlgoritmoGenetico";
-import UbicacionSection from "@/sections/ubicacion";
+import NosotrosSection from "@/sections/nosotros";
 
 export default function IndexPage() {
 
   return (
     <DefaultLayout>
-      <section className="relative overflow-visible mt-8" id="event">
-        <EventSection />
+      <section className="relative overflow-visible mt-8" id="hero">
+        <HeroSection />
       </section>
 
       <motion.section
-        id="entradas"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className=""
-      >
-        <EntradasSection />
-      </motion.section>
-
-      <motion.section
-        id="invitados"
+        id="algoritmo-geneticos"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -36,13 +25,13 @@ export default function IndexPage() {
         <GASection />
       </motion.section>
       <motion.section
-        id="ubicacion"
+        id="nosotros"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className=""
       >
-        <UbicacionSection />
+        <NosotrosSection />
       </motion.section>
     </DefaultLayout>
   );

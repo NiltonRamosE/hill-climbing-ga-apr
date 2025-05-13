@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Valetono: Cada vez más cerca...",
+  name: "Hill Climbing",
   description:
-    "Página web dedicada a la divulgación del Valetono este 25 de marzo",
+    "Página web dedicada a la divulgación de la ciencia y la tecnología, con un enfoque en la inteligencia artificial y los algoritmos genéticos.",
   navItems: [
     {
       id: "entradasLink",
@@ -11,14 +11,14 @@ export const siteConfig = {
       href: "#entradas",
     },
     {
-      id: "invitadosLink",
-      label: "Invitados",
-      href: "#invitados",
+      id: "algoritmosLink",
+      label: "Algoritmos Genéticos",
+      href: "#algoritmo-geneticos",
     },
     {
-      id: "ubicacionLink",
-      label: "Ubicación",
-      href: "#ubicacion",
+      id: "nostrosLink",
+      label: "Nosotros",
+      href: "#nosotros",
     },
   ],
   navMenuItems: [

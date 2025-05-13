@@ -1,9 +1,9 @@
 import { motion } from "framer-motion"
-import { FaDna, FaCog, FaRocket, FaExclamationTriangle, FaBookOpen, FaPython } from "react-icons/fa"
+import { FaDna} from "react-icons/fa"
 
 export default function InfografiaAlgoritmoGenetico() {
   return (
-    <section className="bg-gradient-to-b from-slate-900 to-slate-950 text-white py-16 px-6">
+    <section className="text-white py-16 px-6">
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}

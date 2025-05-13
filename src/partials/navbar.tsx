@@ -27,15 +27,15 @@ export const Navbar = () => {
 
   return (
     <NavbarUI
-      className="fixed top-4 z-50 left-1/2 transform -translate-x-1/2 shadow-md rounded-full max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-3xl border-2 border-nilton-neon" 
+      className="fixed h-[70px] top-4 z-50 left-1/2 transform -translate-x-1/2 shadow-md rounded-full max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-3xl border-2 border-nilton-neon bg-white/30 backdrop-blur-md" 
     >
       <NavbarContent>
         <NavbarBrand>
           <a 
             className="font-bold text-inherit flex items-center gap-2"
             color="foreground"
-            href="#event"
-            onClick={(e) => handleScroll(e, "event")}
+            href="#hero"
+            onClick={(e) => handleScroll(e, "hero")}
           >
             <img
               alt="Nilton Logo"
