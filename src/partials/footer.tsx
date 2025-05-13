@@ -4,7 +4,7 @@ import { Link } from "@nextui-org/react";
 export const Footer = () => {
   return (
     <motion.footer
-      className="bg-background/70 backdrop-blur-md border-b w-full flex flex-col items-center justify-center py-6"
+      className="bg-white/30 backdrop-blur-md border-b w-full flex flex-col items-center justify-center py-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}

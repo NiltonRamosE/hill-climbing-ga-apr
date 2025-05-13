@@ -6,9 +6,9 @@ export const siteConfig = {
     "Página web dedicada a la divulgación de la ciencia y la tecnología, con un enfoque en la inteligencia artificial y los algoritmos genéticos.",
   navItems: [
     {
-      id: "entradasLink",
-      label: "Entradas",
-      href: "#entradas",
+      id: "hillClimbingLink",
+      label: "Hill Climbing",
+      href: "#hill-climbing",
     },
     {
       id: "algoritmosLink",
