@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import EventSection from "@/sections/evento";
 import EntradasSection from "@/sections/entradas";
-import InvitadosSection from "@/sections/invitados";
+import GASection from "@/sections/InfografiaAlgoritmoGenetico";
 import UbicacionSection from "@/sections/ubicacion";
 
 export default function IndexPage() {
@@ -33,7 +33,7 @@ export default function IndexPage() {
         transition={{ duration: 0.5 }}
         className=""
       >
-        <InvitadosSection />
+        <GASection />
       </motion.section>
       <motion.section
         id="ubicacion"
