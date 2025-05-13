@@ -95,7 +95,7 @@ export default function HeroSection() {
       >
         <div className="relative w-3/4 lg:w-full max-w-md flex items-center justify-center">
           <img
-            src="hill-climbing.png"
+            src="hill-climbing2.webp"
             alt="Optimización Evolutiva"
             className="relative w-full max-w-sm object-contain "
           />
