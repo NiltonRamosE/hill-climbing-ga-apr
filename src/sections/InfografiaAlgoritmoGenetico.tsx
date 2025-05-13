@@ -1,7 +1,58 @@
 import { motion } from "framer-motion"
 import { FaDna} from "react-icons/fa"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function InfografiaAlgoritmoGenetico() {
+    const codigo = `
+    import random
+    from deap import base, creator, tools
+
+    # Objetivo: aproximar a 15 usando binarios de 5 bits
+    creator.create("FitnessMax", base.Fitness, weights=(1.0,))
+    creator.create("Individual", list, fitness=creator.FitnessMax)
+
+    toolbox = base.Toolbox()
+    toolbox.register("attr_bool", random.randint, 0, 1)
+    toolbox.register("individual", tools.initRepeat, creator.Individual,
+                    toolbox.attr_bool, 5)
+    toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+
+    def evalSum(individual):
+        return sum(individual),  # suma de bits como fitness
+
+    toolbox.register("evaluate", evalSum)
+    toolbox.register("mate", tools.cxTwoPoint)
+    toolbox.register("mutate", tools.mutFlipBit, indpb=0.1)
+    toolbox.register("select", tools.selTournament, tournsize=3)
+
+    # Evolución
+    pop = toolbox.population(n=10)
+    for gen in range(10):
+        offspring = toolbox.select(pop, len(pop))
+        offspring = list(map(toolbox.clone, offspring))
+
+        for child1, child2 in zip(offspring[::2], offspring[1::2]):
+            if random.random() < 0.5:
+                toolbox.mate(child1, child2)
+                del child1.fitness.values
+                del child2.fitness.values
+
+        for mutant in offspring:
+            if random.random() < 0.2:
+                toolbox.mutate(mutant)
+                del mutant.fitness.values
+
+        invalid = [ind for ind in offspring if not ind.fitness.valid]
+        fitnesses = map(toolbox.evaluate, invalid)
+        for ind, fit in zip(invalid, fitnesses):
+            ind.fitness.values = fit
+
+        pop[:] = offspring
+
+    top = tools.selBest(pop, 1)[0]
+    print("Mejor solución:", top, "→", sum(top))
+    `;
   return (
     <section className="text-white py-16 px-6">
       <motion.div
@@ -229,55 +280,20 @@ export default function InfografiaAlgoritmoGenetico() {
           Ejemplo básico en Python + DEAP
         </h3>
 
-        <div className="bg-gray-900 text-gray-100 font-mono text-sm rounded-xl shadow-xl p-6 max-w-4xl mx-auto overflow-x-auto border border-gray-700">
-          <pre>{`import random
-from deap import base, creator, tools
-
-# Objetivo: aproximar a 15 usando binarios de 5 bits
-creator.create("FitnessMax", base.Fitness, weights=(1.0,))
-creator.create("Individual", list, fitness=creator.FitnessMax)
-
-toolbox = base.Toolbox()
-toolbox.register("attr_bool", random.randint, 0, 1)
-toolbox.register("individual", tools.initRepeat, creator.Individual,
-                 toolbox.attr_bool, 5)
-toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-
-def evalSum(individual):
-    return sum(individual),  # suma de bits como fitness
-
-toolbox.register("evaluate", evalSum)
-toolbox.register("mate", tools.cxTwoPoint)
-toolbox.register("mutate", tools.mutFlipBit, indpb=0.1)
-toolbox.register("select", tools.selTournament, tournsize=3)
-
-# Evolución
-pop = toolbox.population(n=10)
-for gen in range(10):
-    offspring = toolbox.select(pop, len(pop))
-    offspring = list(map(toolbox.clone, offspring))
-
-    for child1, child2 in zip(offspring[::2], offspring[1::2]):
-        if random.random() < 0.5:
-            toolbox.mate(child1, child2)
-            del child1.fitness.values
-            del child2.fitness.values
-
-    for mutant in offspring:
-        if random.random() < 0.2:
-            toolbox.mutate(mutant)
-            del mutant.fitness.values
-
-    invalid = [ind for ind in offspring if not ind.fitness.valid]
-    fitnesses = map(toolbox.evaluate, invalid)
-    for ind, fit in zip(invalid, fitnesses):
-        ind.fitness.values = fit
-
-    pop[:] = offspring
-
-top = tools.selBest(pop, 1)[0]
-print("Mejor solución:", top, "→", sum(top))`}</pre>
+        <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="flex flex-col gap-10 w-full max-w-5xl"
+      >
+        <div className="bg-white/10 backdrop-blur-lg p-6 rounded-xl border border-nilton-neon">
+          <div className="bg-black/30 p-4 rounded-md mt-4 text-sm text-gray-300 overflow-x-auto">
+            <SyntaxHighlighter language="python" style={oneDark} wrapLines>
+              {codigo}
+            </SyntaxHighlighter>
+          </div>
         </div>
+      </motion.div>
 
         {/* Resultado */}
         <p className="mt-8 text-gray-300 text-base max-w-3xl mx-auto leading-relaxed text-center">

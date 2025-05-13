@@ -16,7 +16,7 @@ export const siteConfig = {
       href: "#algoritmo-geneticos",
     },
     {
-      id: "nostrosLink",
+      id: "nosotrosLink",
       label: "Nosotros",
       href: "#nosotros",
     },
